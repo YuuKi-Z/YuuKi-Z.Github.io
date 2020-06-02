@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://YuuKi-Z.Github.io</id>
+    <title>YuuKi-Z</title>
+    <updated>2020-06-02T09:44:37.873Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://YuuKi-Z.Github.io"/>
+    <link rel="self" href="https://YuuKi-Z.Github.io/atom.xml"/>
+    <logo>https://YuuKi-Z.Github.io/images/avatar.png</logo>
+    <icon>https://YuuKi-Z.Github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, YuuKi-Z</rights>
+    <entry>
+        <title type="html"><![CDATA[01]]></title>
+        <id>https://YuuKi-Z.Github.io/post/01/</id>
+        <link href="https://YuuKi-Z.Github.io/post/01/">
+        </link>
+        <updated>2020-06-02T01:53:17.000Z</updated>
+        <content type="html"><![CDATA[<p>01</p>
+]]></content>
+    </entry>
+</feed>
