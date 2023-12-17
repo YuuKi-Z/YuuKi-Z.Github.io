@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>色图、启动！</title>
+  <style>
+    #imageContainer {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 5px; /* 添加一些间距，使布局更美观 */
+    }
+  </style>
+</head>
+<body>
+  <h1>色图，启动!</h1>
+  <div id="imageContainer"></div>
+
+  <script>
+    fetch('https://image.anosu.top/pixiv/json?num=30&r18=1&size=original&keyword=foot')
+      .then(response => response.json())
+      .then(data => {
+        const imageContainer = document.getElementById('imageContainer');
+
+        data.forEach(item => {
+          const imgElement = document.createElement('img');
+          imgElement.src = item.url;
+          imgElement.alt = 'Pixiv Image';
+          imageContainer.appendChild(imgElement);
+        });
+      });
+  </script>
+</body>
+</html>
