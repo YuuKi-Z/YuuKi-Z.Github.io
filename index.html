@@ -26,14 +26,17 @@
       display: flex;
       justify-content: center;
       margin: 20px;
+      flex-wrap: wrap; /* 当按钮过多时，允许换行 */
     }
 
     button {
+      flex-grow: 1; /* 填充可用空间 */
       background-color: #2ecc71;
       color: #fff;
       border: none;
       padding: 10px 20px;
-      margin: 0 10px;
+      margin: 0 5px; /* 减小按钮之间的间距 */
+      margin-bottom: 10px; /* 按钮底部间距 */
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease;
@@ -82,9 +85,10 @@
   </header>
 
   <nav>
-    <button onclick="showImages('玉足')">玉足</button>
+    <button onclick="showImages('裸足')">玉足</button>
     <button onclick="showImages('美脚')">美脚</button>
     <button onclick="showImages('黑丝')">黑丝</button>
+    <button onclick="showImages('タイツ')">裤袜</button>
     <button onclick="showImages('幼女')">幼女</button>
     <button onclick="showImages('萝莉')">萝莉</button>
     <button onclick="showImages('御姐')">御姐</button>
@@ -93,7 +97,31 @@
     <button onclick="showImages('姐姐')">姐姐</button>
     <button onclick="showImages('豪乳')">豪乳</button>
     <button onclick="showImages('jk')">jk</button>
-    <!-- 添加其他按钮，每个按钮对应一个关键词 -->
+    <button onclick="showImages('sm')">sm</button>
+    <button onclick="showImages('奴隷')">奴隷</button>
+    <button onclick="showImages('百合')">百合</button>
+    <button onclick="showImages('レズ')">蕾丝边</button>
+    <button onclick="showImages('女性上位')">骑乘</button>
+    <button onclick="showImages('足フェチ')">恋足</button>
+    <button onclick="showImages('Feet')">Feet</button>
+    <button onclick="showImages('パンスト')">丝足</button>
+    <button onclick="showImages('足指')">脚趾</button>
+    <button onclick="showImages('タイツ足裏')">丝足脚底</button>
+    <button onclick="showImages('裸足裏')">裸足脚底</button>
+    <button onclick="showImages('下乳')">南半球</button>
+    <button onclick="showImages('制服')">制服</button>
+    <button onclick="showImages('ギリシャ型')">希腊脚</button>
+    <button onclick="showImages('腋')">腋下</button>
+    <button onclick="showImages('おっぱい')">欧派</button>
+    <button onclick="showImages('爆乳')">爆乳</button>
+    <button onclick="showImages('露出')">露出</button>
+    <button onclick="showImages('おしっこ')">撒尿</button>
+    <button onclick="showImages('アナル')">肛门</button>
+    <button onclick="showImages('すじ')">骆驼趾</button>
+    <button onclick="showImages('恥丘')">耻丘</button>
+    <button onclick="showImages('巨乳')">巨乳</button>
+    <button onclick="showImages('エロ蹲踞')">H开腿</button>
+    <button onclick="showImages('フェラ')">口交</button>
   </nav>
 
   <!-- 主要内容区域，可以根据需要添加更多内容 -->
@@ -113,15 +141,21 @@
           const imageContainer = document.getElementById('imageContainer');
           imageContainer.innerHTML = '';
 
-          data.forEach(item => {
-            const imgElement = document.createElement('img');
-            imgElement.src = item.url;
-            imgElement.alt = 'Pixiv Image';
-            imgElement.onclick = function() {
-              window.open(item.url, '_blank');
-            };
-            imageContainer.appendChild(imgElement);
-          });
+          if (data.length === 0) {
+            // 如果返回的数据为空，弹出提示框
+            alert("你的XP实在太怪了，我甘拜下风！");
+          } else {
+            // 如果有数据，则展示图片
+            data.forEach(item => {
+              const imgElement = document.createElement('img');
+              imgElement.src = item.url;
+              imgElement.alt = 'Pixiv Image';
+              imgElement.onclick = function() {
+                window.open(item.url, '_blank');
+              };
+              imageContainer.appendChild(imgElement);
+            });
+          }
         })
         .catch(error => console.error('Error fetching images:', error));
     }
