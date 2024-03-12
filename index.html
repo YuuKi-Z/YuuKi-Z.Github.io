@@ -132,42 +132,43 @@
   </div>
 
   <div id="imageContainer"></div>
+<script>
+  function showImages(keyword) {
+    fetch(`https://image.anosu.top/pixiv/json?num=10&r18=1&size=original&keyword=${encodeURIComponent(keyword)}`)
+      .then(response => response.json())
+      .then(data => {
+        const imageContainer = document.getElementById('imageContainer');
+        imageContainer.innerHTML = '';
 
-  <script>
-    function showImages(keyword) {
-      fetch(`https://image.anosu.top/pixiv/json?num=10&r18=1&size=original&keyword=${encodeURIComponent(keyword)}`)
-        .then(response => response.json())
-        .then(data => {
-          const imageContainer = document.getElementById('imageContainer');
-          imageContainer.innerHTML = '';
+        if (data.length === 0) {
+          // 如果返回的数据为空，弹出提示框
+          alert("你的XP实在太怪了，我甘拜下风！");
+        } else {
+          // 如果有数据，则展示图片
+          data.forEach(item => {
+            // 修改图片链接
+            const imgUrl = item.url.replace('https://i.pixiv.re', 'https://sex.nyan.xyz');
+            const imgElement = document.createElement('img');
+            imgElement.src = imgUrl;
+            imgElement.alt = 'Pixiv Image';
+            imgElement.onclick = function() {
+              window.open(imgUrl, '_blank');
+            };
+            imageContainer.appendChild(imgElement);
+          });
+        }
+      })
+      .catch(error => console.error('Error fetching images:', error));
+  }
 
-          if (data.length === 0) {
-            // 如果返回的数据为空，弹出提示框
-            alert("你的XP实在太怪了，我甘拜下风！");
-          } else {
-            // 如果有数据，则展示图片
-            data.forEach(item => {
-              const imgElement = document.createElement('img');
-              imgElement.src = item.url;
-              imgElement.alt = 'Pixiv Image';
-              imgElement.onclick = function() {
-                window.open(item.url, '_blank');
-              };
-              imageContainer.appendChild(imgElement);
-            });
-          }
-        })
-        .catch(error => console.error('Error fetching images:', error));
+  function searchByKeyword() {
+    const keywordInput = document.getElementById('keywordInput');
+    const keyword = keywordInput.value.trim();
+
+    if (keyword) {
+      showImages(keyword);
     }
-
-    function searchByKeyword() {
-      const keywordInput = document.getElementById('keywordInput');
-      const keyword = keywordInput.value.trim();
-
-      if (keyword) {
-        showImages(keyword);
-      }
-    }
-  </script>
+  }
+</script>
 </body>
 </html>
