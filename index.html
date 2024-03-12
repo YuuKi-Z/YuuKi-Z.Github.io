@@ -135,7 +135,7 @@
 
   <script>
     function showImages(keyword) {
-      fetch(`https://image.anosu.top/pixiv/json?num=30&r18=1&size=original&keyword=${encodeURIComponent(keyword)}`)
+      fetch(`https://image.anosu.top/pixiv/json?num=1&r18=1&size=original&keyword=${encodeURIComponent(keyword)}`)
         .then(response => response.json())
         .then(data => {
           const imageContainer = document.getElementById('imageContainer');
