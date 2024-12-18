@@ -134,7 +134,7 @@
   <div id="imageContainer"></div>
 <script>
   function showImages(keyword) {
-    fetch(`https://image.anosu.top/pixiv/json?num=10&r18=1&size=original&keyword=${encodeURIComponent(keyword)}`)
+    fetch(`https://image.anosu.top/pixiv/json?num=1&r18=2&keyword=${encodeURIComponent(keyword)}`)
       .then(response => response.json())
       .then(data => {
         const imageContainer = document.getElementById('imageContainer');
@@ -147,7 +147,7 @@
           // 如果有数据，则展示图片
           data.forEach(item => {
             // 修改图片链接
-            const imgUrl = item.url.replace('https://i.pixiv.re', 'https://sex.nyan.xyz');
+            const imgUrl = item.url.replace('https://i.pixiv.re', 'https://i.pixiv.re');
             const imgElement = document.createElement('img');
             imgElement.src = imgUrl;
             imgElement.alt = 'Pixiv Image';
